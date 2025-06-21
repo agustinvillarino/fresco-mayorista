@@ -1,0 +1,97 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 28 67% 96%; /* #f8f2eb */
+    --foreground: 150 83% 19%; /* #065a37 */
+    --card: 0 0% 100%;
+    --card-foreground: 150 83% 19%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 83% 19%;
+    --primary: 26 93% 55%; /* #f7771f - accent */
+    --primary-foreground: 0 0% 100%; 
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 150 83% 19%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 26 93% 55%; /* #f7771f */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 26 93% 55%; /* #f7771f */
+    --radius: 0.5rem;
+
+    --custom-title-color: #065a37;
+    --custom-accent-color: #f7771f;
+    --custom-body-bg: #f8f2eb;
+  }
+
+  .dark {
+    /* Define dark mode colors if needed, or adjust existing ones */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-customBodyBg text-customTitle font-montserrat;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-akzentica text-customTitle;
+  }
+  .fitness-gradient-text { /* Kept for potential specific use, but general titles use --custom-title-color */
+    @apply bg-gradient-to-r from-green-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent;
+  }
+  .fitness-bg-gradient { /* Kept for potential specific use, but general accents use --custom-accent-color */
+     @apply bg-gradient-to-r from-green-500 via-teal-500 to-cyan-500;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
+}
+
+.category-card {
+  background: linear-gradient(145deg, #e6fff2, #c8f7e0); /* Example, can be adjusted */
+  box-shadow: 10px 10px 30px #b8e6d0, -10px -10px 30px #ffffff;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.7); /* Slightly more opaque for better readability on new bg */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--accent-rgb), 0.3); /* Using accent color for border */
+}
+
+.promo-gradient {
+  background: linear-gradient(45deg, hsl(var(--accent)), #f7b733, hsl(var(--primary)), #e74c3c);
+  background-size: 400% 400%;
+  animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-pattern {
+  background-image: 
+    radial-gradient(circle at 15px 15px, rgba(6,90,55,0.08) 2%, transparent 0%), 
+    radial-gradient(circle at 65px 65px, rgba(6,90,55,0.05) 2%, transparent 0%);
+  background-size: 80px 80px;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
